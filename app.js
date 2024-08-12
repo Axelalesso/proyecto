@@ -6,6 +6,7 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var nosotrosRouter = require('./routes/nosotros');
 
 var app = express();
 
@@ -21,6 +22,25 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/nosotros', nosotrosRouter);
+
+app.get('/ejemplo1' , function ( req , res){
+  res.send ('soy ejemplo 111');
+});
+
+
+app.get('/ejemplo2' , function ( req , res){
+  res.send('soy ejemplo 222');
+});
+
+
+app.get('/ejemplo3' , function ( req , res){
+  res.send('soy ejemplo 333');
+});
+
+
+
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -39,3 +59,4 @@ app.use(function(err, req, res, next) {
 });
 
 module.exports = app;
+
